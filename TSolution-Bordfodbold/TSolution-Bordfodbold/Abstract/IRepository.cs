@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TSolution_Bordfodbold.Abstract {
-  public class IRepository {
+namespace TSolution_Bordfodbold.Abstract
+{
+    public class IRepository
+    {
 
-  }
+    }
 }
