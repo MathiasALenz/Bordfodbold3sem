@@ -7,26 +7,31 @@ using Ninject;
 using TSolution_Bordfodbold.Abstract;
 using TSolution_Bordfodbold.Concrete;
 
-namespace TSolution_Bordfodbold.Infrastructure {
-  public class NinjectDependencyResolver : IDependencyResolver {
+namespace TSolution_Bordfodbold.Infrastructure
+{
+    public class NinjectDependencyResolver : IDependencyResolver
+    {
+        private IKernel kernel;
 
-    private IKernel kernel;
+        public NinjectDependencyResolver(IKernel kernelParam)
+        {
+            kernel = kernelParam;
+            AddBindings();
+        }
 
-    public NinjectDependencyResolver(IKernel kernelParam) {
-      kernel = kernelParam;
-      AddBindings();
+        public object GetService(Type serviceType)
+        {
+            return kernel.TryGet(serviceType);
+        }
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            return kernel.GetAll(serviceType);
+        }
+
+        private void AddBindings()
+        {
+            kernel.Bind<IRepository>().To<EFRepository>();
+        }
     }
-
-    public object GetService(Type serviceType) {
-      return kernel.TryGet(serviceType);
-    }
-
-    public IEnumerable<object> GetServices(Type serviceType) {
-      return kernel.GetAll(serviceType);
-    }
-
-    private void AddBindings() {
-      kernel.Bind<IRepository>().To<EFRepository>();
-    }
-  }
 }

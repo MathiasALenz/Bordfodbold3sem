@@ -1,5 +1,5 @@
-[assembly: WebActivator.PreApplicationStartMethod(typeof(TSolution_Bordfodbold.Tests.App_Start.NinjectWebCommon), "Start")]
-[assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(TSolution_Bordfodbold.Tests.App_Start.NinjectWebCommon), "Stop")]
+[assembly: WebActivatorEx.PreApplicationStartMethod(typeof(TSolution_Bordfodbold.Tests.App_Start.NinjectWebCommon), "Start")]
+[assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(TSolution_Bordfodbold.Tests.App_Start.NinjectWebCommon), "Stop")]
 
 namespace TSolution_Bordfodbold.Tests.App_Start
 {
@@ -40,11 +40,19 @@ namespace TSolution_Bordfodbold.Tests.App_Start
         private static IKernel CreateKernel()
         {
             var kernel = new StandardKernel();
-            kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-            kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
-            
-            RegisterServices(kernel);
-            return kernel;
+            try
+            {
+                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+                RegisterServices(kernel);
+                return kernel;
+            }
+            catch
+            {
+                kernel.Dispose();
+                throw;
+            }
         }
 
         /// <summary>

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TSolution_Bordfodbold.Entities;
 
 namespace TSolution_Bordfodbold.Abstract
 {
-    public class IRepository
+    public interface IRepository
     {
+        IEnumerable<Spiller> Spillere { get; }
 
+        void GemSpiller(Spiller spiller);
     }
 }
