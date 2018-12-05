@@ -1,0 +1,33 @@
+﻿@model TSolution_Bordfodbold.Entities.Spiller
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Rediger @Model.Navn</title>
+</head>
+@using (Html.BeginForm("Rediger", "Spiller")) {
+    <div class="panel">
+        <div class="panel-body">
+            @Html.HiddenFor(s => s.Spiller_ID)
+            @foreach (var property in ViewData.ModelMetadata.Properties) {
+                if (property.PropertyName != "Spiller_ID") {
+                    <div class="form-group">
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @Html.TextArea(property.PropertyName, null, new { @class = "form-control", rows = 1 })
+                        @Html.ValidationMessage(property.PropertyName)
+                    </div>
+                }
+            }
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Gem" class="btn btn-primary" />
+            @Html.ActionLink("Afslut og vend tilbage til listen", "Spillere", null, new { @class = "btn btn-default" })
+        </div>
+    </div>
+}
