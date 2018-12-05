@@ -15,12 +15,12 @@
         @foreach(Spiller spiller in Model)
         {
             <tr>
-                <td>@spiller.Navn</td>
+                <td>@Html.ActionLink(spiller.Navn, "Rediger", new { spiller.Spiller_ID })</td>
                 <td>@spiller.Uafgjorte</td>
                 <td>
                     @using(Html.BeginForm("Slet", "Spiller"))
                     {
-                        @Html.Hidden("spillerID", spiller.Spiller_ID)
+                        @Html.Hidden("spiller_ID", spiller.Spiller_ID)
                         <input type="submit" value="Slet"/>
                     }
                 </td>

@@ -28,8 +28,8 @@ namespace TSolution_Bordfodbold.Controllers {
       return View("Rediger", new Spiller());
     }
 
-    public ViewResult Rediger(int Spiller_ID) {
-      Spiller spiller = repository.Spillere.FirstOrDefault(s => s.Spiller_ID == Spiller_ID);
+    public ViewResult Rediger(int spiller_ID) {
+      Spiller spiller = repository.Spillere.FirstOrDefault(s => s.Spiller_ID == spiller_ID);
       return View(spiller);
     }
 
