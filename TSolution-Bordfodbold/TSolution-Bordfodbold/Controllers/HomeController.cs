@@ -30,7 +30,7 @@ namespace TSolution_Bordfodbold.Controllers
                 Tabte = 2,
                 Uafgjorte = 900,
                 WS = 8,
-                Administrator = true
+                Administrator = 1
             };
 
             repository.GemSpiller(spiller);

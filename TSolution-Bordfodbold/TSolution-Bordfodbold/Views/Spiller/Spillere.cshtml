@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TSolution_Bordfodbold.Entities.Spiller>
+@using TSolution_Bordfodbold.Entities
+
+@{
+    Layout = null;
+}
+
+<html>
+<body>
+    <table>
+        <tr>
+            <th>Navn</th>
+            <th>Uafgjorte</th>
+        </tr>
+        @foreach(Spiller spiller in Model)
+        {
+            <tr>
+                <td>@spiller.Navn</td>
+                <td>@spiller.Uafgjorte</td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

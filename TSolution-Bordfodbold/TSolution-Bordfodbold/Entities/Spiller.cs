@@ -17,6 +17,7 @@ namespace TSolution_Bordfodbold.Entities
         public int Tabte { get; set; }
         public int Uafgjorte { get; set; }
         public int WS { get; set; }
-        public bool Administrator { get; set; }
+        [Range(0, 1)]
+        public int Administrator { get; set; }
     }
 }
