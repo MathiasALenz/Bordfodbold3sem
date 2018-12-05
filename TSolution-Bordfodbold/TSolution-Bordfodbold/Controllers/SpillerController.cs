@@ -37,8 +37,7 @@ namespace TSolution_Bordfodbold.Controllers {
     public ActionResult Rediger(Spiller spiller) {
       if (ModelState.IsValid) {
         repository.GemSpiller(spiller);
-        TempData["message"] = spiller.Navn + " has been saved";
-        return RedirectToAction("spillerList");
+        return RedirectToAction("spillere");
       }
       else
         return View(spiller);
