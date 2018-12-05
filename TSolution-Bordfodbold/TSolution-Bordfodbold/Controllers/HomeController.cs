@@ -23,7 +23,7 @@ namespace TSolution_Bordfodbold.Controllers
         {
             Spiller spiller = new Spiller
             {
-                Navn = "Hans Arne",
+                Navn = "Hans1",
                 Scorede_Maal = 1,
                 Indkasserede_Maal = 10,
                 Vundne = 7,

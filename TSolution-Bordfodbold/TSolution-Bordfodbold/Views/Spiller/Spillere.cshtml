@@ -17,8 +17,16 @@
             <tr>
                 <td>@spiller.Navn</td>
                 <td>@spiller.Uafgjorte</td>
+                <td>
+                    @using(Html.BeginForm("Slet", "Spiller"))
+                    {
+                        @Html.Hidden("spillerID", spiller.Spiller_ID)
+                        <input type="submit" value="Slet"/>
+                    }
+                </td>
             </tr>
         }
     </table>
+    @Html.ActionLink("Opret spiller", "Opret", "Spiller", new { @class = "btn btn-default" })
 </body>
 </html>

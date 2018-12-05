@@ -40,5 +40,17 @@ namespace TSolution_Bordfodbold.Concrete
 
             context.SaveChanges();
         }
+
+        public Spiller SletSpiller(int spillerID)
+        {
+            Spiller dbEntry = context.Spillere.Find(spillerID);
+            if(dbEntry != null)
+            {
+                context.Spillere.Remove(dbEntry);
+                context.SaveChanges();
+            }
+
+            return dbEntry;
+        }
     }
 }

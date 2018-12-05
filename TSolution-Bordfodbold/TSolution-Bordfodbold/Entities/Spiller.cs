@@ -19,5 +19,20 @@ namespace TSolution_Bordfodbold.Entities
         public int WS { get; set; }
         [Range(0, 1)]
         public int Administrator { get; set; }
+
+        public Spiller() { }
+        
+        public Spiller(string Navn, int Administrator)
+        {
+            this.Spiller_ID = 0;
+            this.Navn = Navn;
+            this.Scorede_Maal = 0;
+            this.Indkasserede_Maal = 0;
+            this.Vundne = 0;
+            this.Tabte = 0;
+            this.Uafgjorte = 0;
+            this.WS = 0;
+            this.Administrator = Administrator;
+        }
     }
 }
