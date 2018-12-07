@@ -34,6 +34,21 @@ namespace TSolution_Bordfodbold.Tests {
     }
 
     [TestMethod]
+    public void OpretSpiller() {
+      //Arrange
+      Mock<IRepository> mock = new Mock<IRepository>();
+      SpillerController controller = new SpillerController(mock.Object);
+
+      //Act
+      ActionResult result = controller.Opret();
+      Spiller spiller = new Spiller();
+
+      //Assert
+      Assert.IsInstanceOfType(spiller, typeof(Spiller));
+      Assert.IsInstanceOfType(result, typeof(ViewResult));
+    }
+
+    [TestMethod]
     public void Test_Slet_Spiller() {
       //Arrange
       Spiller spiller = new Spiller() { Spiller_ID = 1, Navn = "Hugo" };
