@@ -39,5 +39,10 @@ namespace TSolution_Bordfodbold.Entities
             this.WS = 0;
             this.Administrator = Administrator;
         }
+
+        public override string ToString()
+        {
+            return Navn;
+        }
     }
 }

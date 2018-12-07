@@ -150,12 +150,15 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFRepository.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KampController.cs" />
     <Compile Include="Controllers\SpillerController.cs" />
+    <Compile Include="Entities\Kamp.cs" />
     <Compile Include="Entities\Spiller.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
+    <Compile Include="Models\KampViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +172,8 @@
     <Content Include="Views\Spiller\Rediger.cshtml" />
     <Content Include="Views\Home\_Layout.cshtml" />
     <Content Include="Views\Spiller\_Layout.cshtml" />
+    <Content Include="Views\Kamp\Kamp.cshtml" />
+    <Content Include="Views\Kamp\Resultat.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,7 +183,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

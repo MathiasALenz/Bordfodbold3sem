@@ -1,0 +1,47 @@
+﻿@model TSolution_Bordfodbold.Models.KampViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Resultat</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <th>Hold 1</th>
+                <th>Dato</th>
+                <th>Hold 2</th>
+            </tr>
+            <tr>
+                <td>@Model.Spiller1</td>
+                <td></td>
+                <td>@Model.Spiller3</td>
+            </tr>
+            <tr>
+                <td>@Model.Spiller2</td>
+                <td></td>
+                <td>@Model.Spiller4</td>
+            </tr>
+            <tr>
+                <td align="right">@Model.Hold1_Maal</td>
+                <td align="center"><strong>-</strong></td>
+                <td>@Model.Hold2_Maal</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    @Html.RouteLink("Afslut", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

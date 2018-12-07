@@ -11,8 +11,9 @@
     <title>Index</title>
 </head>
 <body>
-    <div style="padding-top: 10px"> 
-        @Html.RouteLink("Se Spillere", new { controller = "Spiller", action = "Spillere"}, new { @class = "btn btn-default"})
+    <div style="padding-top: 10px">
+        @Html.RouteLink("Se spillere", new { controller = "Spiller", action = "Spillere" }, new { @class = "btn btn-default" })
+        @Html.RouteLink("Opret kamp", new { controller = "Kamp", action = "Kamp" }, new { @class = "btn btn-default" })
     </div>
 </body>
 </html>

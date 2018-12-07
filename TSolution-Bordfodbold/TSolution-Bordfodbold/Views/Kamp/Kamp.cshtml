@@ -1,0 +1,109 @@
+﻿@model TSolution_Bordfodbold.Models.KampViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Opret</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script type="text/javascript">
+        var hold1Maal = 0;
+        var hold2Maal = 0;
+
+        function PlusOnClick1() {
+            hold1Maal += 1;
+            document.getElementById("hold1Maal").value = hold1Maal;
+            
+        }
+        function MinusOnClick1() {
+            if (hold1Maal > 0) {
+                hold1Maal -= 1;
+            }
+            document.getElementById("hold1Maal").value = hold1Maal;
+        };
+
+        function PlusOnClick2() {
+            hold2Maal += 1;
+            document.getElementById("hold2Maal").value = hold2Maal;
+        }
+        function MinusOnClick2() {
+            if (hold2Maal > 0) {
+                hold2Maal -= 1;
+            }
+            document.getElementById("hold2Maal").value = hold2Maal;
+        };
+
+    </script>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Resultat", "Kamp"))
+        {
+        <table>
+            <tr>
+                <td align="center"><strong>Hold 1</strong></td>
+                <td align="center"><strong>Timer</strong></td>
+                <td align="center"><strong>Hold 2</strong></td>
+            </tr>
+            <tr>
+                <td align="center">
+                    @Html.DropDownListFor(m => m.Spiller1, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
+                </td>
+                <td></td>
+                <td align="center">
+                    @Html.DropDownListFor(m => m.Spiller3, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    @Html.DropDownListFor(m => m.Spiller2, new SelectList(Model.Spillere, "Navn"), "Spiller 2")
+                </td>
+                <td></td>
+                <td align="center">
+                    @Html.DropDownListFor(m => m.Spiller4, new SelectList(Model.Spillere, "Navn"), "Spiller 2")
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    Mål:
+                </td>
+                <td align="center">
+                    <input type="button" value="Start" class="btn btn-success"/>
+                </td>
+                <td align="center">
+                    Mål:
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <button id="hold1Plus" type="button" onclick="PlusOnClick1()">+</button>
+                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal" })
+                    <button id="hold1Minus" type="button" onclick="MinusOnClick1()">-</button>
+                </td>
+                <td align="center">
+                    @Html.RouteLink("Annuller", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
+                </td>
+                <td align="center">
+                    <button id="hold2Plus" type="button" onclick="PlusOnClick2()">+</button>
+                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal"})
+                    <button id="hold2Minus" type="button" onclick="MinusOnClick2()">-</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td align="center">
+                    <input type="submit" value="Angiv resultat" class="btn btn-warning" /> 
+                </td>
+            </tr>
+        </table>
+        }
+    </div>
+</body>
+</html>
