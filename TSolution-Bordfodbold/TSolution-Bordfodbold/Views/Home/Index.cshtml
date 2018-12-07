@@ -1,6 +1,6 @@
 ﻿
 @{
-    Layout = null;
+    Layout = "_Layout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -11,11 +11,8 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
-        @using (Html.BeginForm())
-        {
-            <input type="submit" value="cunt" style="border-color : deeppink" />
-        }
+    <div style="padding-top: 10px"> 
+        @Html.RouteLink("Se Spillere", new { controller = "Spiller", action = "Spillere"}, new { @class = "btn btn-default"})
     </div>
 </body>
 </html>

@@ -2,31 +2,39 @@
 @using TSolution_Bordfodbold.Entities
 
 @{
-    Layout = null;
+    Layout = "_Layout.cshtml";
 }
 
 <html>
 <body>
-    <table>
-        <tr>
-            <th>Navn</th>
-            <th>Uafgjorte</th>
-        </tr>
-        @foreach(Spiller spiller in Model)
-        {
+    <div style="padding-top: 10px">
+        <table class="table table-striped table-condensed table-bordered">
             <tr>
-                <td>@Html.ActionLink(spiller.Navn, "Rediger", new { spiller.Spiller_ID })</td>
-                <td>@spiller.Uafgjorte</td>
-                <td>
-                    @using(Html.BeginForm("Slet", "Spiller"))
-                    {
-                        @Html.Hidden("spiller_ID", spiller.Spiller_ID)
-                        <input type="submit" value="Slet"/>
-                    }
-                </td>
+                <th scope="col">Navn</th>
+                <th scope="col" class="text-center">Vundne</th>
+                <th scope="col" class="text-center">Uafgjorte</th>
+                <th scope="col" class="text-center">Tabte</th>
+                <th scope="col" class="text-center">Statistik</th>
             </tr>
-        }
-    </table>
-    @Html.ActionLink("Opret spiller", "Opret", "Spiller", new { @class = "btn btn-default" })
+            @foreach (Spiller spiller in Model)
+            {
+                <tr>
+                    <td>@Html.ActionLink(spiller.Navn, "Rediger", new { spiller.Spiller_ID })</td>
+                    <td class="text-center">@spiller.Vundne</td>
+                    <td class="text-center">@spiller.Uafgjorte</td>
+                    <td class="text-center">@spiller.Tabte</td>
+                    <td class="text-center">
+                        @using (Html.BeginForm("Slet", "Spiller"))
+                        {
+                            @Html.Hidden("spiller_ID", spiller.Spiller_ID)
+                            <input type="submit" value="Slet"/>
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+        @Html.ActionLink("Opret spiller", "Opret", "Spiller", new { @class = "btn btn-default" })
+    </div>
+
 </body>
 </html>

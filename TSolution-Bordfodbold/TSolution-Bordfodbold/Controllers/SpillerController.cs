@@ -44,8 +44,8 @@ namespace TSolution_Bordfodbold.Controllers {
     }
 
 
-    public ActionResult Slet(int spillerID) {
-      repository.SletSpiller(spillerID);
+    public ActionResult Slet(int Spiller_ID) {
+      repository.SletSpiller(Spiller_ID);
 
       return RedirectToAction("Spillere");
     }

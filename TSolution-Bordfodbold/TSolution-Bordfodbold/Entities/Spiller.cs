@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
 
 namespace TSolution_Bordfodbold.Entities
 {
@@ -11,7 +12,11 @@ namespace TSolution_Bordfodbold.Entities
         [Key]
         public int Spiller_ID { get; set; }
         public string Navn { get; set; }
+
+        [Display(Name = "Scorede Mål")]
         public int Scorede_Maal { get; set; }
+
+        [Display(Name = "Indkasserede Mål")]
         public int Indkasserede_Maal { get; set; }
         public int Vundne { get; set; }
         public int Tabte { get; set; }
