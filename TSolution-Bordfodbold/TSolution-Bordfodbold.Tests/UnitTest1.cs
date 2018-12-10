@@ -16,9 +16,9 @@ namespace TSolution_Bordfodbold.Tests {
       //Arrange
       Mock<IRepository> mock = new Mock<IRepository>();
       mock.Setup(x => x.Spillere).Returns(new Spiller[] {
-                new Spiller("Ane", 0),
-                new Spiller("Ruben", 0),
-                new Spiller("Stok", 0)
+                new Spiller("Ane", false),
+                new Spiller("Ruben", false),
+                new Spiller("Stok", false)
             });
 
       SpillerController controller = new SpillerController(mock.Object);
@@ -76,15 +76,15 @@ namespace TSolution_Bordfodbold.Tests {
                 new Spiller {Spiller_ID = 1, Navn = "Bent",
                              Indkasserede_Maal = 2, Scorede_Maal = 3,
                              Tabte = 4, Uafgjorte= 5, Vundne=6, WS=7,
-                             Administrator = 0},
+                             Administrator = false},
                 new Spiller {Spiller_ID = 2, Navn = "Bent",
                              Indkasserede_Maal = 2, Scorede_Maal = 3,
                              Tabte = 4, Uafgjorte= 5, Vundne=6, WS=7,
-                             Administrator = 0},
+                             Administrator = false},
                 new Spiller {Spiller_ID = 3, Navn = "Bent",
                              Indkasserede_Maal = 2, Scorede_Maal = 3,
                              Tabte = 4, Uafgjorte= 5, Vundne=6, WS=7,
-                             Administrator = 0}
+                             Administrator = false}
             });
 
       SpillerController controller = new SpillerController(mock.Object);
@@ -115,7 +115,7 @@ namespace TSolution_Bordfodbold.Tests {
         Uafgjorte = 4,
         Vundne = 5,
         WS = 6,
-        Administrator = 0
+        Administrator = false
       };
 
       //Act
@@ -144,7 +144,7 @@ namespace TSolution_Bordfodbold.Tests {
         Uafgjorte = 4,
         Vundne = 5,
         WS = 6,
-        Administrator = 0
+        Administrator = false
       };
 
       controller.ModelState.AddModelError("error", "error");

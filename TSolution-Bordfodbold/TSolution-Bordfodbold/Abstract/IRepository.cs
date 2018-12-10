@@ -13,5 +13,9 @@ namespace TSolution_Bordfodbold.Abstract
         void GemSpiller(Spiller spiller);
 
         Spiller SletSpiller(int spillerID);
+
+        IEnumerable<Kamp> Kampe { get; }
+
+        void GemKamp(Kamp kamp);
     }
 }

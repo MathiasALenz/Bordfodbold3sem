@@ -1,4 +1,4 @@
-﻿@model TSolution_Bordfodbold.Models.KampViewModel
+﻿@model TSolution_Bordfodbold.Entities.Kamp
 
 @{
     Layout = null;
@@ -10,38 +10,57 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Resultat</title>
+    <script type="text/javascript">
+        function onLoad() {
+            document.getElementById("spiller1navn").value = @Model.Spiller1;
+            document.getElementById("spiller2navn").value = @Model.Spiller2;
+            document.getElementById("spiller3navn").value = @Model.Spiller3;
+            document.getElementById("spiller4navn").value = @Model.Spiller4;
+            document.getElementById("hold1maal").value = @Model.Hold1_Maal;
+            document.getElementById("hold2maal").value = @Model.Hold2_Maal;
+            document.getElementById("datotid").value = @Model.DatoTid;
+        }
+    </script>
 </head>
-<body>
+<body onload="onLoad()">
+
     <div>
-        <table>
-            <tr>
-                <th>Hold 1</th>
-                <th>Dato</th>
-                <th>Hold 2</th>
-            </tr>
-            <tr>
-                <td>@Model.Spiller1</td>
-                <td></td>
-                <td>@Model.Spiller3</td>
-            </tr>
-            <tr>
-                <td>@Model.Spiller2</td>
-                <td></td>
-                <td>@Model.Spiller4</td>
-            </tr>
-            <tr>
-                <td align="right">@Model.Hold1_Maal</td>
-                <td align="center"><strong>-</strong></td>
-                <td>@Model.Hold2_Maal</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    @Html.RouteLink("Afslut", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
-                </td>
-                <td></td>
-            </tr>
-        </table>
+        @using (Html.BeginForm("AfslutKamp", "Kamp"))
+        {
+
+            <table>
+                <tr>
+                    <th>Hold 1</th>
+                    <th>Dato</th>
+                    <th>Hold 2</th>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(n => n.Spiller1, new { @id = "spiller1navn" })</td>
+                    <td></td>
+                    <td>@Html.TextBoxFor(n => n.Spiller3, new { @id = "spiller3navn" })</td>
+                </tr>
+                <tr>
+                    <td>@Html.TextBoxFor(n => n.Spiller2, new { @id = "spiller2navn" })</td>
+                    <td></td>
+                    <td>@Html.TextBoxFor(n => n.Spiller4, new { @id = "spiller4navn" })</td>
+                </tr>
+                <tr>
+                    <td align="right">@Html.TextBoxFor(n => n.Hold1_Maal, new { @id = "hold1maal" })</td>
+                    <td align="center"><strong>-</strong></td>
+                    <td>@Html.TextBoxFor(n => n.Hold2_Maal, new { @id = "hold2maal" })</td>
+                    @Html.HiddenFor(n => n.DatoTid, new { @id = "datotid" })
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Afslut" /></td>
+                    <td></td>
+                </tr>
+            </table>
+
+        }
     </div>
+
+
+
 </body>
 </html>

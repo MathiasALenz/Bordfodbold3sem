@@ -28,6 +28,18 @@
                             case "Uafgjorte":
                             case "Tabte":
                             case "WS": break;
+                            case "Administrator":
+                                <tr>
+                                    <div class="form-group">
+                                        <td>
+                                            <b>@(property.DisplayName ?? property.PropertyName)</b>
+                                        </td>
+                                        <td>
+                                            @Html.CheckBox(property.PropertyName, false, new { @class = "form-control" })
+                                        </td>
+                                        @Html.ValidationMessage(property.PropertyName)
+                                    </div>
+                                </tr> break;
                             default:
                                 <tr>
                                     <div class="form-group">
@@ -39,7 +51,7 @@
                                         </td>
                                         @Html.ValidationMessage(property.PropertyName)
                                     </div>
-                                </tr> break;
+                                </tr>break;
                         }
                     }
                 </table>

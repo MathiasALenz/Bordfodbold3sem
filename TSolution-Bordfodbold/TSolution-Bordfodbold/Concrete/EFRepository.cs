@@ -15,6 +15,10 @@ namespace TSolution_Bordfodbold.Concrete
         {
             get { return context.Spillere; }
         }
+        public IEnumerable<Kamp> Kampe
+        {
+            get { return context.Kampe; }
+        }
 
         public void GemSpiller(Spiller spiller)
         {
@@ -51,6 +55,13 @@ namespace TSolution_Bordfodbold.Concrete
             }
 
             return dbEntry;
+        }
+
+        public void GemKamp(Kamp kamp)
+        {
+            context.Kampe.Add(kamp);
+            context.SaveChanges();
+
         }
     }
 }

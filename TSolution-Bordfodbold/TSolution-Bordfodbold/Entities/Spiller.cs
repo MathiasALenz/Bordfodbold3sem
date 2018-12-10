@@ -23,11 +23,12 @@ namespace TSolution_Bordfodbold.Entities
         public int Uafgjorte { get; set; }
         public int WS { get; set; }
         [Range(0, 1)]
-        public int Administrator { get; set; }
+        public bool Administrator { get; set; }
+        //public bool boolValue { get; set; }
 
         public Spiller() { }
         
-        public Spiller(string Navn, int Administrator)
+        public Spiller(string Navn, bool Administrator)
         {
             this.Spiller_ID = 0;
             this.Navn = Navn;
