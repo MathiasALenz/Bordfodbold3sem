@@ -32,6 +32,7 @@ namespace TSolution_Bordfodbold.Infrastructure
         private void AddBindings()
         {
             kernel.Bind<IRepository>().To<EFRepository>();
+            kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }

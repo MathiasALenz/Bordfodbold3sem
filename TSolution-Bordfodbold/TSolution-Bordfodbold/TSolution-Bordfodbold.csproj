@@ -144,11 +144,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAuthProvider.cs" />
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Concrete\EFRepository.cs" />
+    <Compile Include="Concrete\FormsAuthProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KampController.cs" />
     <Compile Include="Controllers\SpillerController.cs" />
@@ -174,6 +176,7 @@
     <Content Include="Views\Spiller\_Layout.cshtml" />
     <Content Include="Views\Kamp\Kamp.cshtml" />
     <Content Include="Views\Kamp\Resultat.cshtml" />
+    <Content Include="Views\Spiller\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
