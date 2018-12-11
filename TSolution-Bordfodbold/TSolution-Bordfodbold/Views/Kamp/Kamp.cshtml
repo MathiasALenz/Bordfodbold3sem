@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>Opret</title>
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script type="text/javascript">
         var hold1Maal = 0;
@@ -83,17 +83,17 @@
             </tr>
             <tr>
                 <td align="center">
-                    <button id="hold1Plus" type="button" onclick="PlusOnClick1()">+</button>
-                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal" })
-                    <button id="hold1Minus" type="button" onclick="MinusOnClick1()">-</button>
+                    <button id="hold1Plus" type="button" style="font-size:24px" onclick="PlusOnClick1()">+</button>
+                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:24px" })
+                    <button id="hold1Minus" type="button" style="font-size:24px" onclick="MinusOnClick1()">-</button>
                 </td>
                 <td align="center">
                     @Html.RouteLink("Annuller", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
                 </td>
                 <td align="center">
-                    <button id="hold2Plus" type="button" onclick="PlusOnClick2()">+</button>
-                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal"})
-                    <button id="hold2Minus" type="button" onclick="MinusOnClick2()">-</button>
+                    <button id="hold2Plus" type="button" style="font-size:24px" onclick="PlusOnClick2()">+</button>
+                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:24px" })
+                    <button id="hold2Minus" type="button" style="font-size:24px" onclick="MinusOnClick2()">-</button>
                 </td>
             </tr>
             <tr>

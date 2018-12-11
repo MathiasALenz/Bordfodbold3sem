@@ -7,8 +7,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
-    <title>Rediger @Model.Navn</title>
+    <title>Rediger</title>
 </head>
 <body style="background-color: lightgray">
     @using (Html.BeginForm("Rediger", "Spiller"))
@@ -57,11 +59,17 @@
                 </table>
             </div>
             <div class="panel-footer">
+
                 <input type="submit" value="Gem" class="btn btn-primary" />
                 @Html.ActionLink("Afslut og vend tilbage til listen", "Spillere", null, new { @class = "btn btn-default" })
             </div>
         </div>
 
+    }
+    @using (Html.BeginForm("Slet", "Spiller"))
+    {
+        @Html.Hidden("spiller_ID", Model.Spiller_ID)
+        <input type="submit" value="Slet" />
     }
 </body>
 </html>

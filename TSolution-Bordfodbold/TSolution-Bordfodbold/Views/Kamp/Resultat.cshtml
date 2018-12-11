@@ -8,6 +8,8 @@
 
 <html>
 <head>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>Resultat</title>
     <script type="text/javascript">
@@ -35,19 +37,19 @@
                     <th>Hold 2</th>
                 </tr>
                 <tr>
-                    <td>@Html.TextBoxFor(n => n.Spiller1, new { @id = "spiller1navn" })</td>
+                    <td>@Html.TextBoxFor(n => n.Spiller1, new { @id = "spiller1navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                     <td></td>
-                    <td>@Html.TextBoxFor(n => n.Spiller3, new { @id = "spiller3navn" })</td>
+                    <td>@Html.TextBoxFor(n => n.Spiller3, new { @id = "spiller3navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                 </tr>
                 <tr>
-                    <td>@Html.TextBoxFor(n => n.Spiller2, new { @id = "spiller2navn" })</td>
+                    <td>@Html.TextBoxFor(n => n.Spiller2, new { @id = "spiller2navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                     <td></td>
-                    <td>@Html.TextBoxFor(n => n.Spiller4, new { @id = "spiller4navn" })</td>
+                    <td>@Html.TextBoxFor(n => n.Spiller4, new { @id = "spiller4navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                 </tr>
                 <tr>
-                    <td align="right">@Html.TextBoxFor(n => n.Hold1_Maal, new { @id = "hold1maal" })</td>
+                    <td align="right">@Html.TextBoxFor(n => n.Hold1_Maal, new { @id = "hold1maal", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                     <td align="center"><strong>-</strong></td>
-                    <td>@Html.TextBoxFor(n => n.Hold2_Maal, new { @id = "hold2maal" })</td>
+                    <td>@Html.TextBoxFor(n => n.Hold2_Maal, new { @id = "hold2maal", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
                     @Html.HiddenFor(n => n.DatoTid, new { @id = "datotid" })
                 </tr>
                 <tr>

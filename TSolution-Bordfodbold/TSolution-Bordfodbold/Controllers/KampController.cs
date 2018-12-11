@@ -54,23 +54,57 @@ namespace TSolution_Bordfodbold.Controllers
             spiller2.Indkasserede_Maal += kamp.Hold2_Maal;
             spiller2.Scorede_Maal += kamp.Hold1_Maal;
 
-
             Spiller spiller3 = repository.Spillere.FirstOrDefault(n => n.Navn == kamp.Spiller3);
             spiller3.Indkasserede_Maal += kamp.Hold1_Maal;
             spiller3.Scorede_Maal += kamp.Hold2_Maal;
-
-            if (kamp.Hold1_Maal > kamp.Hold2_Maal)
-            {
-                spiller3.Tabte++;
-            }
 
             Spiller spiller4 = repository.Spillere.FirstOrDefault(n => n.Navn == kamp.Spiller4);
             spiller4.Indkasserede_Maal += kamp.Hold1_Maal;
             spiller4.Scorede_Maal += kamp.Hold2_Maal;
 
-            if (kamp.Hold1_Maal > kamp.Hold2_Maal)
+            if(kamp.Hold2_Maal > kamp.Hold1_Maal)
             {
+                spiller1.Tabte++;
+                spiller1.WS = 0;
+
+                spiller2.Tabte++;
+                spiller2.WS = 0;
+
+                spiller3.Vundne++;
+                spiller3.WS++;
+
+                spiller4.Vundne++;
+                spiller4.WS++;
+            }
+
+            else if (kamp.Hold1_Maal > kamp.Hold2_Maal)
+            {
+                spiller1.Vundne++;
+                spiller1.WS++;
+
+                spiller2.Vundne++;
+                spiller2.WS++;
+
+                spiller3.Tabte++;
+                spiller3.WS = 0;
+
                 spiller4.Tabte++;
+                spiller4.WS = 0;
+            }
+
+            else
+            {
+                spiller1.Uafgjorte++;
+                spiller1.WS = 0;
+
+                spiller2.Uafgjorte++;
+                spiller2.WS = 0;
+
+                spiller3.Uafgjorte++;
+                spiller3.WS = 0;
+
+                spiller4.Uafgjorte++;
+                spiller4.WS = 0;
             }
 
             repository.GemSpiller(spiller1);
