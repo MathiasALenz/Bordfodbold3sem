@@ -177,6 +177,7 @@
     <Content Include="Views\Kamp\Kamp.cshtml" />
     <Content Include="Views\Kamp\Resultat.cshtml" />
     <Content Include="Views\Spiller\Login.cshtml" />
+    <Content Include="Views\Spiller\Statistik.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

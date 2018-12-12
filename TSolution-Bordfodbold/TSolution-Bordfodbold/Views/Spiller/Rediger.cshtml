@@ -37,7 +37,7 @@
                                             <b>@(property.DisplayName ?? property.PropertyName)</b>
                                         </td>
                                         <td>
-                                            @Html.CheckBox(property.PropertyName, false, new { @class = "form-control" })
+                                            @Html.CheckBox(property.PropertyName, Model.Administrator, new { @class = "form-control" })
                                         </td>
                                         @Html.ValidationMessage(property.PropertyName)
                                     </div>
@@ -49,7 +49,7 @@
                                             <b>@(property.DisplayName ?? property.PropertyName)</b>
                                         </td>
                                         <td>
-                                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control", rows = 1 })
+                                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control", rows = 1, maxlength = "30"})
                                         </td>
                                         @Html.ValidationMessage(property.PropertyName)
                                     </div>

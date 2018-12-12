@@ -15,13 +15,13 @@
         @using (Html.BeginForm()) {
             @Html.ValidationSummary()
             <div class="form-group">
-                <label>User Name:</label>
+                <label>Brugernavn:</label>
                 @Html.TextBoxFor(m => m.Brugernavn, new {
                     @class = "formcontrol"
                 })
             </div>
             <div class="form-group">
-                <label>Password:</label>
+                <label>Kodeord:</label>
                 @Html.PasswordFor(m => m.Kodeord, new {
                     @class = "formcontrol"
                 })

@@ -1,0 +1,38 @@
+﻿@model TSolution_Bordfodbold.Entities.Spiller
+
+@{
+    Layout = "_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Statistik</title>
+    <script type="text/javascript">
+        function OnLoad() {
+            document.getElementById("kampe").innerHTML = (@Model.Vundne + @Model.Uafgjorte + @Model.Tabte);
+            var maal = @Model.Scorede_Maal - @Model.Indkasserede_Maal;
+            document.getElementById("totalmaal").innerHTML = maal;
+            }
+    </script>
+</head>
+<body onload="OnLoad()">
+    <div> 
+        <h1 align="center">@Model.Navn</h1>
+        <table align="center" class="table table-bordered table-condensed table-striped">
+            <tr><th></th><th>Statistik</th></tr>
+            <tr> <td> <strong>Antal kampe:</strong> </td> <td id="kampe"></td> </tr>
+            <tr> <td> <strong>Vundne:</strong> </td> <td>@Model.Vundne</td> </tr>
+            <tr> <td> <strong>Uafgjorte:</strong> </td> <td>@Model.Uafgjorte</td> </tr>
+            <tr> <td> <strong>Tabte:</strong> </td> <td>@Model.Tabte</td> </tr>
+            <tr> <td> <strong>Scorede mål:</strong> </td> <td>@Model.Scorede_Maal</td> </tr>
+            <tr> <td> <strong>Indkasserede mål:</strong> </td> <td>@Model.Indkasserede_Maal</td> </tr>
+            <tr> <td> <strong>Total mål:</strong> </td> <td id="totalmaal"></td> </tr>
+            <tr> <td> <strong>Winning streak:</strong> </td> <td>@Model.WS</td> </tr>
+        </table>
+        @Html.ActionLink("Tilbage", "Spillere", null, new { @class="btn btn-info"})
+    </div>
+</body>
+</html>
