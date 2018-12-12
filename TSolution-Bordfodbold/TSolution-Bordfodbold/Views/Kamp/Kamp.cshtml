@@ -40,6 +40,36 @@
             document.getElementById("hold2Maal").value = hold2Maal;
         };
 
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = 0;
+                }
+                
+            }, 1000);
+        }
+
+        var flag = 0;
+
+        function startCountdown() {
+            if (flag == 0) {
+                var fiveMinutes = 60 * 0.2,
+                    display = document.querySelector('#time');
+                startTimer(fiveMinutes, display);
+                flag++;
+            }
+            
+            
+        };
     </script>
 </head>
 <body>
@@ -56,7 +86,7 @@
                 <td align="center">
                     @Html.DropDownListFor(m => m.SpillerNr1, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
                 </td>
-                <td></td>
+                <td><span id="time">05:00</span></td>
                 <td align="center">
                     @Html.DropDownListFor(m => m.SpillerNr3, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
                 </td>
@@ -75,7 +105,7 @@
                     Mål:
                 </td>
                 <td align="center">
-                    <input type="button" value="Start" class="btn btn-success"/>
+                    <input type="button" value="Start" onclick="startCountdown()" class="btn btn-success"/>
                 </td>
                 <td align="center">
                     Mål:
