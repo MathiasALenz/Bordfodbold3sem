@@ -9,7 +9,6 @@
 <head>
     <link href="~/Content/bootstrap.css" rel="stylesheet" type="text/css"  />
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css"  />
-
 </head>
 <body>
     <div style="padding-top: 10px">
@@ -22,19 +21,24 @@
                 <th scope="col" class="text-center">Statistik</th>
             </tr>
             @foreach (Spiller spiller in Model)
-            {
-                <tr>
-                    <td>@Html.ActionLink(spiller.Navn, "Rediger", new { spiller.Spiller_ID })</td>
-                    <td class="text-center">@spiller.Vundne</td>
-                    <td class="text-center">@spiller.Uafgjorte</td>
-                    <td class="text-center">@spiller.Tabte</td>
-                    <td class="text-center">
-                       @Html.ActionLink("Se statistik", "Statistik", new { spiller.Spiller_ID }, new { @class = "btn btn-default" })
-                    </td>
-                </tr>
-            }
+        {
+            <tr>
+                <td>@Html.ActionLink(spiller.Navn, "Rediger", new { spiller.Spiller_ID })</td>
+                <td class="text-center">@spiller.Vundne</td>
+                <td class="text-center">@spiller.Uafgjorte</td>
+                <td class="text-center">@spiller.Tabte</td>
+                <td class="text-center">
+                    @Html.ActionLink("Se statistik", "Statistik", new { spiller.Spiller_ID }, new { @class = "btn btn-default" })
+                </td>
+            </tr>
+    }
         </table>
         @Html.ActionLink("Opret spiller", "Opret", "Spiller", new { @class = "btn btn-default" })
+        <a href="/Home/Index" class="btn btn-default">
+            <strong class="glyphicon glyphicon-home" >
+                <strong class="glyphicon glyphicon-hand-left"></strong>
+            </strong>
+        </a>
     </div>
 
 </body>

@@ -13,12 +13,15 @@
     <title>Rediger</title>
 </head>
 <body style="background-color: lightgray">
+    <div class="panel-heading" align="center">
+        <strong style="font-size:xx-large">@ViewBag.Header spiller</strong>
+    </div>
     @using (Html.BeginForm("Rediger", "Spiller"))
     {
-        <div class="panel">
+        <div class="panel" align="center">
             <div class="panel-body">
                 @Html.HiddenFor(s => s.Spiller_ID)
-                <table class="table table-condensed table-bordered">
+                <table>
                     @foreach (var property in ViewData.ModelMetadata.Properties)
                     {
                         switch (property.PropertyName)
@@ -32,27 +35,37 @@
                             case "WS": break;
                             case "Administrator":
                                 <tr>
-                                    <div class="form-group">
-                                        <td>
-                                            <b>@(property.DisplayName ?? property.PropertyName)</b>
-                                        </td>
-                                        <td>
-                                            @Html.CheckBox(property.PropertyName, Model.Administrator, new { @class = "form-control" })
-                                        </td>
+
+                                    <td>
+                                        <b>@(property.DisplayName ?? property.PropertyName)</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="center" style="padding-top: 10px">
+                                        @Html.CheckBox(property.PropertyName, Model.Administrator, new { style = "transform: scale(2.5)" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         @Html.ValidationMessage(property.PropertyName)
-                                    </div>
+                                    </td>
                                 </tr> break;
+
                             default:
                                 <tr>
-                                    <div class="form-group">
-                                        <td>
-                                            <b>@(property.DisplayName ?? property.PropertyName)</b>
-                                        </td>
-                                        <td>
-                                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control", rows = 1, maxlength = "30"})
-                                        </td>
+                                    <td>
+                                        <b>@(property.DisplayName ?? property.PropertyName)</b>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control", rows = 1, maxlength = "30" })
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
                                         @Html.ValidationMessage(property.PropertyName)
-                                    </div>
+                                    </td>
                                 </tr>break;
                         }
                     }
@@ -61,15 +74,17 @@
             <div class="panel-footer">
 
                 <input type="submit" value="Gem" class="btn btn-primary" />
-                @Html.ActionLink("Afslut og vend tilbage til listen", "Spillere", null, new { @class = "btn btn-default" })
+                @Html.ActionLink("Tilbage", "Spillere", null, new { @class = "btn btn-default" })
             </div>
         </div>
 
     }
-    @using (Html.BeginForm("Slet", "Spiller"))
-    {
-        @Html.Hidden("spiller_ID", Model.Spiller_ID)
-        <input type="submit" value="Slet" />
-    }
+    <div align="center">
+        @using (Html.BeginForm("Slet", "Spiller"))
+        {
+            @Html.Hidden("spiller_ID", Model.Spiller_ID)
+            <input type="submit" value="Slet" class="btn btn-danger" />
+        }
+    </div>
 </body>
 </html>

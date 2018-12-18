@@ -73,57 +73,57 @@
     </script>
 </head>
 <body>
-    <div>
+    <div align="center">
         @using (Html.BeginForm("Resultat", "Kamp"))
         {
         <table>
             <tr>
-                <td align="center"><strong>Hold 1</strong></td>
-                <td align="center"><strong>Timer</strong></td>
-                <td align="center"><strong>Hold 2</strong></td>
+                <td align="center" style="font-size:larger"><strong>Hold 1</strong></td>
+                <td align="center" style="font-size:larger"><strong>Timer</strong></td>
+                <td align="center" style="font-size:larger"><strong>Hold 2</strong></td>
             </tr>
             <tr>
                 <td align="center">
-                    @Html.DropDownListFor(m => m.SpillerNr1, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
+                    @Html.DropDownListFor(m => m.SpillerNr1, new SelectList(Model.Spillere, "Navn"), "Spiller 1", new { style = "width:125px; height:40px; font-size:larger" })
                 </td>
-                <td><span id="time">05:00</span></td>
-                <td align="center">
-                    @Html.DropDownListFor(m => m.SpillerNr3, new SelectList(Model.Spillere, "Navn"), "Spiller 1")
+                <td align="center" style="font-size:x-large"><span id="time">05:00</span></td>
+                <td align="center" >
+                    @Html.DropDownListFor(m => m.SpillerNr3, new SelectList(Model.Spillere, "Navn"), "Spiller 1", new { style = "width:125px; height:40px; font-size:larger" })
                 </td>
             </tr>
             <tr>
-                <td align="center">
-                    @Html.DropDownListFor(m => m.SpillerNr2, new SelectList(Model.Spillere, "Navn"), "Spiller 2")
+                <td align="center" style="padding-top:10px">
+                    @Html.DropDownListFor(m => m.SpillerNr2, new SelectList(Model.Spillere, "Navn"), "Spiller 2", new { style = "width:125px; height:40px; font-size:larger" })
                 </td>
                 <td></td>
-                <td align="center">
-                    @Html.DropDownListFor(m => m.SpillerNr4, new SelectList(Model.Spillere, "Navn"), "Spiller 2")
+                <td align="center" style="padding-top:10px">
+                    @Html.DropDownListFor(m => m.SpillerNr4, new SelectList(Model.Spillere, "Navn"), "Spiller 2", new { style = "width:125px; height:40px; font-size:larger" })
                 </td>
             </tr>
-            <tr>
-                <td align="center">
+            <tr >
+                <td align="center" style="font-size:x-large; padding-top:20px">
                     Mål:
                 </td>
                 <td align="center">
                     <input type="button" value="Start" onclick="startCountdown()" class="btn btn-success"/>
                 </td>
-                <td align="center">
+                <td align="center" style="font-size:x-large; padding-top:20px">
                     Mål:
                 </td>
             </tr>
             <tr>
                 <td align="center">
-                    <button id="hold1Plus" type="button" style="font-size:24px" onclick="PlusOnClick1()">+</button>
-                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:24px" })
-                    <button id="hold1Minus" type="button" style="font-size:24px" onclick="MinusOnClick1()">-</button>
+                    <button id="hold1Plus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="PlusOnClick1()">+</button>
+                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:35px" })
+                    <button id="hold1Minus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="MinusOnClick1()">-</button>
                 </td>
                 <td align="center">
                     @Html.RouteLink("Annuller", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
                 </td>
                 <td align="center">
-                    <button id="hold2Plus" type="button" style="font-size:24px" onclick="PlusOnClick2()">+</button>
-                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:24px" })
-                    <button id="hold2Minus" type="button" style="font-size:24px" onclick="MinusOnClick2()">-</button>
+                    <button id="hold2Plus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" align="center" onclick="PlusOnClick2()">+</button>
+                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:35px" })
+                    <button id="hold2Minus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="MinusOnClick2()">-</button>
                 </td>
             </tr>
             <tr>

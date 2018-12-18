@@ -33,12 +33,14 @@ namespace TSolution_Bordfodbold.Controllers
         [Authorize]
         public ActionResult Opret()
         {
+            ViewBag.Header = "Opret";
             return View("Rediger", new Spiller());
         }
 
         [Authorize]
         public ViewResult Rediger(int spiller_ID)
         {
+            ViewBag.Header = "Rediger";
             Spiller spiller = repository.Spillere.FirstOrDefault(s => s.Spiller_ID == spiller_ID);
             return View(spiller);
         }
@@ -46,6 +48,7 @@ namespace TSolution_Bordfodbold.Controllers
         [HttpPost, Authorize]
         public ActionResult Rediger(Spiller spiller)
         {
+            ViewBag.Header = "Rediger";
             if (ModelState.IsValid)
             {
                 repository.GemSpiller(spiller);

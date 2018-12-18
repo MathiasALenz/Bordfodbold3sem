@@ -29,16 +29,16 @@ namespace TSolution_Bordfodbold.Controllers
         [HttpPost]
         public ActionResult Resultat(KampViewModel viewModel)
         {
-            Kamp kamp = new Kamp()
-            {
-                Hold1_Maal = viewModel.Hold1_Maal,
-                Hold2_Maal = viewModel.Hold2_Maal,
-                Spiller1 = viewModel.SpillerNr1,
-                Spiller2 = viewModel.SpillerNr2,
-                Spiller3 = viewModel.SpillerNr3,
-                Spiller4 = viewModel.SpillerNr4,
-                DatoTid = DateTime.Now
-            };
+            Kamp kamp = new Kamp();
+
+            kamp.Hold1_Maal = viewModel.Hold1_Maal;
+            kamp.Hold2_Maal = viewModel.Hold2_Maal;
+            kamp.Spiller1 = viewModel.SpillerNr1;
+            kamp.Spiller2 = viewModel.SpillerNr2;
+            kamp.Spiller3 = viewModel.SpillerNr3;
+            kamp.Spiller4 = viewModel.SpillerNr4;
+                kamp.DatoTid = DateTime.Now;
+            
 
 
             return View(kamp);
