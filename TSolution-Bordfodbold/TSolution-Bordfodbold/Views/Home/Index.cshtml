@@ -11,9 +11,10 @@
     <title>Index</title>
 </head>
 <body>
-    <div style="padding-top: 10px">
-        @Html.RouteLink("Se spillere", new { controller = "Spiller", action = "Spillere" }, new { @class = "btn btn-default" })
-        @Html.RouteLink("Opret kamp", new { controller = "Kamp", action = "Kamp" }, new { @class = "btn btn-default" })
+    <div style="padding-top: 10px" align ="center">
+        @Html.RouteLink("Se spillere", new { controller = "Spiller", action = "Spillere" }, new { @class = "btn btn-default", style = "width:100px; height: 100px; line-height:80px; font-size:15px" })
+        
+        @Html.RouteLink("Opret kamp", new { controller = "Kamp", action = "Kamp" }, new { @class = "btn btn-default", style = "width:100px; height: 100px; line-height:80px; font-size:15px" })
     </div>
 </body>
 </html>

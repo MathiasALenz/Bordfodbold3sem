@@ -30,31 +30,32 @@
         @using (Html.BeginForm("AfslutKamp", "Kamp"))
         {
 
-            <table>
+            <table align="center">
                 <tr>
-                    <th>Hold 1</th>
-                    <th>Dato</th>
-                    <th>Hold 2</th>
+                    <th style="text-align:center" align="center">Hold 1</th>
+                    <th style="text-align:center" align="center">Dato</th>
+                    <th style="text-align:center" align="center">Hold 2</th>
                 </tr>
                 <tr>
-                    <td>@Html.TextBoxFor(n => n.Spiller1, new { @id = "spiller1navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
+                    <td align="center">@Html.TextBoxFor(n => n.Spiller1, new { @id = "spiller1navn", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center"})</td>
+                    <td align="center">
+                    @Html.TextBoxFor(n => n.DatoTid, new { @id = "datotid", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })
+                    </td>
+                    <td align="center">@Html.TextBoxFor(n => n.Spiller3, new { @id = "spiller3navn", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })</td>
+                </tr>
+                <tr>
+                    <td align="center">@Html.TextBoxFor(n => n.Spiller2, new { @id = "spiller2navn", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })</td>
                     <td></td>
-                    <td>@Html.TextBoxFor(n => n.Spiller3, new { @id = "spiller3navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
+                    <td align="center">@Html.TextBoxFor(n => n.Spiller4, new { @id = "spiller4navn", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })</td>
                 </tr>
                 <tr>
-                    <td>@Html.TextBoxFor(n => n.Spiller2, new { @id = "spiller2navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
-                    <td></td>
-                    <td>@Html.TextBoxFor(n => n.Spiller4, new { @id = "spiller4navn", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
-                </tr>
-                <tr>
-                    <td align="right">@Html.TextBoxFor(n => n.Hold1_Maal, new { @id = "hold1maal", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
-                    <td align="center"><strong>-</strong></td>
-                    <td>@Html.TextBoxFor(n => n.Hold2_Maal, new { @id = "hold2maal", @class = "TextBoxAsLabel", @readonly = "readonly" })</td>
-                    @Html.HiddenFor(n => n.DatoTid, new { @id = "datotid" })
+                    <td align="center">@Html.TextBoxFor(n => n.Hold1_Maal, new { @id = "hold1maal", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })</td>
+                    <td align="center"><strong style="text-align:center">-</strong></td>
+                    <td align="center">@Html.TextBoxFor(n => n.Hold2_Maal, new { @id = "hold2maal", @class = "TextBoxAsLabel", @readonly = "readonly", style = "text-align:center" })</td>
                 </tr>
                 <tr>
                     <td></td>
-                    <td><input type="submit" value="Afslut" /></td>
+                    <td align="center"><input type="submit" value="Afslut" class="btn btn-success"/></td>
                     <td></td>
                 </tr>
             </table>

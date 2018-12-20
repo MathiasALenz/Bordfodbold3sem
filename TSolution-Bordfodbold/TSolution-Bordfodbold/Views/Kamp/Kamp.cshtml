@@ -62,7 +62,7 @@
 
         function startCountdown() {
             if (flag == 0) {
-                var fiveMinutes = 60 * 0.2,
+                var fiveMinutes = 60 * 5,
                     display = document.querySelector('#time');
                 startTimer(fiveMinutes, display);
                 flag++;
@@ -113,23 +113,26 @@
             </tr>
             <tr>
                 <td align="center">
-                    <button id="hold1Plus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="PlusOnClick1()">+</button>
-                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:35px" })
-                    <button id="hold1Minus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="MinusOnClick1()">-</button>
+                    @Html.TextBoxFor(m => m.Hold1_Maal, new { id = "hold1Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "font-size:35px" })
                 </td>
                 <td align="center">
                     @Html.RouteLink("Annuller", new { controller = "Home", action = "Index" }, new { @class = "btn btn-danger" })
                 </td>
                 <td align="center">
-                    <button id="hold2Plus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" align="center" onclick="PlusOnClick2()">+</button>
-                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "width:25px; font-size:35px" })
-                    <button id="hold2Minus" type="button" style="width:60px; height: 60px; font-size: 50px; line-height:50px" onclick="MinusOnClick2()">-</button>
+                    @Html.TextBoxFor(m => m.Hold2_Maal, new { id = "hold2Maal", @class = "TextBoxAsLabel text-center", @readonly = "readonly", style = "font-size:35px" })
                 </td>
             </tr>
             <tr>
-                <td></td>
+                <td align="center">
+                    <button id="hold1Plus" type="button" style="width:45px; height: 45px; font-size: 35px; line-height:30px" onclick="PlusOnClick1()">+</button>
+                    <button id="hold1Minus" type="button" style="width:45px; height: 45px; font-size: 35px; line-height:30px" onclick="MinusOnClick1()">-</button>
+                </td>
                 <td align="center">
                     <input type="submit" value="Angiv resultat" class="btn btn-warning" /> 
+                </td>
+                <td align="center">
+                    <button id="hold2Plus" type="button" style="width:45px; height: 45px; font-size: 35px; line-height:30px" onclick="PlusOnClick2()">+</button>
+                    <button id="hold2Minus" type="button" style="width:45px; height: 45px; font-size: 35px; line-height:30px" onclick="MinusOnClick2()">-</button>
                 </td>
             </tr>
         </table>
